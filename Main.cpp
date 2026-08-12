@@ -10,14 +10,24 @@
 #include "SoundManager.h"
 #include "Camera.h"
 #include "CameraManager.h"
+#include "resource.h"
 
 #pragma comment(lib, "dxgi.lib")
 
 namespace GameLib {
 	inline HWND mainWindowHandle_ = {};
+	inline bool canShutdown_ = false;
 
 	HWND GetGameWindowHandle() {
 		return mainWindowHandle_;
+	}
+
+	bool CanShutdown() {
+		return canShutdown_;
+	}
+
+	void Shutdown() {
+		canShutdown_ = true;
 	}
 }
 
@@ -41,6 +51,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	MSG msg = {};
 	while (msg.message != WM_QUIT) {
+		if (GameLib::CanShutdown()) {
+			break;
+		}
+
 		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE)) {
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
@@ -90,6 +104,7 @@ void InitWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, i
 	wndClass.hIconSm = LoadIcon(nullptr, IDI_WINLOGO);
 	wndClass.hCursor = LoadCursor(nullptr, IDC_ARROW); 
 	wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH); 
+	wndClass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
 	RegisterClassEx(&wndClass);
 
 	mainWindowHandle_ = CreateWindow(
@@ -117,6 +132,19 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		case WM_DESTROY: {
 			PostQuitMessage(0);
 			break;
+		}
+		case WM_COMMAND: {
+			switch (LOWORD(wParam)) {
+				case ID_40001: {
+					break;
+				}
+				case ID_40002: {
+					GameLib::Shutdown();
+					break;
+				}
+				default:
+					break;
+			}
 		}
 	}
 	return DefWindowProc(hwnd, message, wParam, lParam);
