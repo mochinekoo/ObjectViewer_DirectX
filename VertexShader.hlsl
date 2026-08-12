@@ -5,6 +5,7 @@ cbuffer ConstantBuffer : register(b0) {
     matrix wvpMatrix;
     float4 diffuse;
     float4 ambient;
+    int hasTexture;
 };
 
 struct VSInput

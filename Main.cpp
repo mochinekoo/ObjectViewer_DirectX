@@ -236,13 +236,15 @@ void DrawCreateBox() {
 
 		if (ImGui::BeginPopupModal("BoxCreate")) {
 			static int width, height = 0;
+			static float color[4] = {};
 			ImGui::InputInt("Width", &width);
 			ImGui::InputInt("Height", &height);
+			ImGui::ColorPicker4("Color", color);
 				
 			if (ImGui::Button("Create")) {
 				ImGui::CloseCurrentPopup();
 				canShowBoxWindow_ = false;
-				Box* box = new Box(width, height);
+				Box* box = new Box(width, height, {color[0], color[1], color[2], color[3]});
 				ObjectManager::AddObject(box);
 			}
 

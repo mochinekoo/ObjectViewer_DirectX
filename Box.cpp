@@ -26,7 +26,7 @@ void Box::Update() {
 
 	ConstantBuffer constantBuffer = {};
 	constantBuffer.wvpMatrix_ = XMMatrixTranspose(world * view * projection);
-	constantBuffer.diffuse_ = {0.0f, 0.0f, 0.0f, 1.0f};
+	constantBuffer.diffuse_ = color_;
 	constantBuffer.ambient_ = {};
 	constantBuffer.hasTexture_ = FALSE;
 	GetDeviceContext()->UpdateSubresource(constantBuffer_, 0, nullptr, &constantBuffer, 0, 0);
@@ -87,12 +87,12 @@ void Box::Release()
 
 void Box::InitVertexBuffer() {
 	vertexList_.resize(6);
-	vertexList_[0] = { {0.0f, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
-	vertexList_[1] = { {0.0f, (float) height_, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
-	vertexList_[2] = { { (float)width_, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
-	vertexList_[3] = { { (float)width_, 0.0f, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
-	vertexList_[4] = { { (float) width_,  (float)height_, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
-	vertexList_[5] = { {0.0f,  (float)height_, 0.0f}, {0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, 0.0f} };
+	vertexList_[0] = { {0.0f, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[1] = { {0.0f, (float) height_, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[2] = { { (float)width_, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[3] = { { (float)width_, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[4] = { { (float) width_,  (float)height_, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[5] = { {0.0f,  (float)height_, 0.0f}, color_, {0.0f, 0.0f} };
 
 	D3D11_BUFFER_DESC vertexDesc = {};
 	vertexDesc.Usage = D3D11_USAGE_DYNAMIC;
