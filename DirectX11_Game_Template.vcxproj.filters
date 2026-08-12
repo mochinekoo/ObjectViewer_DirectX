@@ -65,6 +65,9 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -147,6 +150,9 @@
       <Filter>Data</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Box.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Manager">

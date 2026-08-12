@@ -12,8 +12,13 @@
 #include "CameraManager.h"
 #include "resource.h"
 #include "Image.h"
+#include "Box.h"
 
 #pragma comment(lib, "dxgi.lib")
+
+namespace {
+	inline bool canShowBoxWindow_ = false;
+}
 
 namespace GameLib {
 	inline HWND mainWindowHandle_ = {};
@@ -40,6 +45,7 @@ void InitWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, i
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 void InitImGUI();
 void DrawDebugImGUI();
+void DrawCreateBox();
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
@@ -77,6 +83,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			ObjectManager::Update();
 
 			DrawDebugImGUI();
+			DrawCreateBox();
 			SoundManager::DrawDebugImGUI();
 
 			ImGui::EndFrame();
@@ -168,6 +175,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					GameLib::Shutdown();
 					break;
 				}
+				case ID_40003: {
+					canShowBoxWindow_ = true;
+					break;
+				}
 				default:
 					break;
 			}
@@ -212,4 +223,30 @@ void DrawDebugImGUI() {
 	ImGui::SliderFloat("Camera Target Z", &currentCamera->target_.z, 0.0f, 10.0f);
 
 	ImGui::End();
+}
+
+void DrawCreateBox() {
+	if (canShowBoxWindow_) {
+		bool showModel = false;
+
+		if (!showModel) {
+			ImGui::OpenPopup("BoxCreate");
+			showModel = true;
+		}
+
+		if (ImGui::BeginPopupModal("BoxCreate")) {
+			static int width, height = 0;
+			ImGui::InputInt("Width", &width);
+			ImGui::InputInt("Height", &height);
+				
+			if (ImGui::Button("Create")) {
+				ImGui::CloseCurrentPopup();
+				canShowBoxWindow_ = false;
+				Box* box = new Box(width, height);
+				ObjectManager::AddObject(box);
+			}
+
+			ImGui::EndPopup();
+		}
+	}
 }
