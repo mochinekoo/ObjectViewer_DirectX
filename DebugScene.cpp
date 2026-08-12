@@ -12,5 +12,4 @@ void DebugScene::Update() {
 }
 
 void DebugScene::Draw() {
-	ImageManager::Draw(imageHandle_);
 }
