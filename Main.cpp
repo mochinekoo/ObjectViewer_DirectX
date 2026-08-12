@@ -1,4 +1,4 @@
-#include <Windows.h>
+﻿#include <Windows.h>
 #include "DX3DManager.h"
 #include "Framework.h"
 #include "FBX.h"
@@ -11,6 +11,7 @@
 #include "Camera.h"
 #include "CameraManager.h"
 #include "resource.h"
+#include "Image.h"
 
 #pragma comment(lib, "dxgi.lib")
 
@@ -136,6 +137,31 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 		case WM_COMMAND: {
 			switch (LOWORD(wParam)) {
 				case ID_40001: {
+					char fileNameBuffer[MAX_PATH] = {};
+					OPENFILENAMEA openFileName = {};
+					openFileName.lStructSize = sizeof(OPENFILENAMEA);
+					openFileName.hwndOwner = GameLib::GetGameWindowHandle();
+					openFileName.lpstrFilter = "FBXファイル(.fbx)\0*.fbx\0画像ファイル(.png)\0*.png\0音声ファイル(.wav、.mp3)\0*.wav;*.mp3\0";
+					openFileName.lpstrFile = fileNameBuffer;
+					openFileName.nFilterIndex = 1;
+					openFileName.nMaxFile = MAX_PATH;
+					openFileName.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+					if (GetOpenFileName(&openFileName)) {
+						std::string fileNameString = fileNameBuffer;
+						if (fileNameString.ends_with(".fbx")) {
+							FBX* fbx = new FBX(fileNameBuffer);
+							ObjectManager::AddObject(fbx);
+						}
+						else if (fileNameString.ends_with(".png")) {
+							Image* image = new Image(fileNameBuffer);
+							ObjectManager::AddObject(image);
+						}
+						else if (fileNameString.ends_with(".wav") || fileNameString.ends_with(".mp3")) {
+							SoundManager::Load(fileNameBuffer);
+							SoundManager::Play(fileNameString);
+						}
+					}
+
 					break;
 				}
 				case ID_40002: {
