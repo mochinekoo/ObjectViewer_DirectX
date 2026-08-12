@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DirectX11_Game_Template.vcxproj" Id="5f546530-b6f3-47ad-adee-83c1fba615d3" />
+</Solution>
