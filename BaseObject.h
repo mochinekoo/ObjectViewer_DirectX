@@ -5,6 +5,7 @@
 
 class BaseObject {
 private:
+	int drawHighOrder_;	// 高いほど手前に
 	std::string name_;
 protected:
 	std::string tag_;
@@ -18,6 +19,7 @@ public:
 		tag_ = "";
 		isDead_ = false;
 		transform_ = Transform();
+		drawHighOrder_ = 0;
 	};
 	virtual ~BaseObject() {};
 
@@ -33,4 +35,7 @@ public:
 	bool IsDead() const { return isDead_; }
 	Transform GetTransform() const { return transform_; }
 	void SetTransform(const Transform& transform) { transform_ = transform; }
+	int GetDrawOrder() const { return drawHighOrder_; }
+	void SetDrawOrder(const int order) { drawHighOrder_ = order;  }
+
 };

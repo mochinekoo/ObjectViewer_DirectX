@@ -10,6 +10,19 @@ void ObjectManager::Init() {
 
 void ObjectManager::Update() {
 	for (int i = 0; i < objectList_.size(); i++) {
+		for (int a = 1; a < objectList_.size(); a++) {
+			BaseObject* object = objectList_[i];
+			if (object == nullptr) continue;
+			BaseObject* object1 = objectList_[a];
+
+			if (object->GetDrawOrder() > object1->GetDrawOrder()) {
+				std::swap(objectList_[i], objectList_[a]);
+			}
+		}
+	}
+
+
+	for (int i = 0; i < objectList_.size(); i++) {
 		BaseObject* object = objectList_[i];
 		if (object == nullptr) continue;
 		if (object->IsDead()) {
