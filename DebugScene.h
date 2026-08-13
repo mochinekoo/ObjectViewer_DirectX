@@ -1,5 +1,7 @@
 #pragma once
 #include "BaseScene.h"
+#include "FBX.h"
+
 class DebugScene : public BaseScene {
 private:
 	int counter_;
