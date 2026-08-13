@@ -38,7 +38,11 @@ void FBX::Update() {
 }
 
 void FBX::Draw() {
-	if (animation_) {
+	if (!zDepthWrite_) {
+		DisableZDepthWrite();
+	}
+
+	if (animation_ && hasAnimation_) {
 
 		if (fbxTime_.GetFrameCount() > maxFrame_) {
 			fbxTime_.SetFrame(0);
@@ -117,6 +121,7 @@ void FBX::Draw() {
 	}
 
 	GetDeviceContext()->RSSetState(nullptr);
+	EnableZDepthWrite();
 
 	std::string title = GetName() + "(" + GetTag() + ")";
 	ImGui::Begin(title.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
@@ -349,6 +354,7 @@ void FBX::InitBone() {
 		hasAnimation_ = false;
 		return;
 	}
+
 	hasAnimation_ = true;
 	skin_ = (FbxSkin*)deformer;
 	clusterCount_ = skin_->GetClusterCount();

@@ -149,3 +149,11 @@ ID3D11DepthStencilState* DX3DManager::GetDepthState() { return depthState_; }
 ID3D11DepthStencilView* DX3DManager::GetDepthView() { return depthStencilView_; }
 ID3D11RasterizerState* DX3DManager::GetRasterizerState() { return rasterizerState_; }
 ID3D11BlendState* DX3DManager::GetBlendState() { return blendState_; }
+
+void DX3DManager::EnableZDepthWrite() {
+	GetDeviceContext()->OMSetRenderTargets(1, &renderTargetView_, GetDepthView());
+}
+
+void DX3DManager::DisableZDepthWrite() {
+	GetDeviceContext()->OMSetRenderTargets(1, &renderTargetView_, nullptr);
+}

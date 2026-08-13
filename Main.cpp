@@ -70,7 +70,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			ID3D11RenderTargetView* renderTargetView = GetRTV();
 
 			float BACKGROUND_COLOR[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-			GetDeviceContext()->OMSetRenderTargets(1, &renderTargetView, GetDepthView());
+			EnableZDepthWrite();
 			GetDeviceContext()->ClearRenderTargetView(renderTargetView,  BACKGROUND_COLOR);
 			GetDeviceContext()->ClearDepthStencilView(GetDepthView(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 

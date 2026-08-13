@@ -41,4 +41,7 @@ namespace DX3DManager {
 	 ID3D11RasterizerState* GetRasterizerState();
 	 ID3D11BlendState* GetBlendState();
 
+	 void EnableZDepthWrite();
+	 void DisableZDepthWrite();
+
 }
