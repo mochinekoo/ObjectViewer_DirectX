@@ -41,6 +41,12 @@ void FBX::Draw() {
 	if (!zDepthWrite_) {
 		DisableZDepthWrite();
 	}
+	if (wireframe_) {
+		EnableWireframe();
+	}
+	else {
+		DisableWireframe();
+	}
 
 	if (animation_ && hasAnimation_) {
 
@@ -99,7 +105,6 @@ void FBX::Draw() {
 
 	GetDeviceContext()->IASetVertexBuffers(0, 1, &vertexBuffer_, &stride, &offset);
 	GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	GetDeviceContext()->RSSetState(GetRasterizerState());
 
 	for (int i = 0; i < materialCount_; i++) {
 		GetDeviceContext()->IASetIndexBuffer(indexBuffer_[i], DXGI_FORMAT_R32_UINT, 0);
@@ -122,6 +127,7 @@ void FBX::Draw() {
 
 	GetDeviceContext()->RSSetState(nullptr);
 	EnableZDepthWrite();
+	DisableWireframe();
 
 	std::string title = GetName() + "(" + GetTag() + ")";
 	ImGui::Begin(title.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
@@ -140,6 +146,7 @@ void FBX::Draw() {
 			ImGui::SliderFloat("Scale X", &transform_.scale_.x, 0.1f, 10.0f);
 			ImGui::SliderFloat("Scale Y", &transform_.scale_.y, 0.1f, 10.0f);
 			ImGui::SliderFloat("Scale Z", &transform_.scale_.z, 0.1f, 10.0f);
+			ImGui::Checkbox("Wireframe", &wireframe_);
 
 			ImGui::EndTabItem();
 		}

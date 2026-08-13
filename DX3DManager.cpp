@@ -21,6 +21,7 @@ namespace DX3DManager {
 	inline ID3D11DepthStencilState* depthState_ = nullptr;
 	inline ID3D11DepthStencilView* depthStencilView_ = nullptr;
 	inline ID3D11RasterizerState* rasterizerState_ = nullptr;
+	inline ID3D11RasterizerState* wireframeRasterizerState_ = nullptr;
 	inline ID3D11BlendState* blendState_ = nullptr;
 }
 
@@ -114,8 +115,15 @@ void DX3DManager::InitRasterizer() {
 	rasterizerDesc.CullMode = D3D11_CULL_NONE;
 	rasterizerDesc.FrontCounterClockwise = FALSE;
 
+	D3D11_RASTERIZER_DESC wireframeDesc = {};
+	wireframeDesc.FillMode = D3D11_FILL_WIREFRAME;
+	wireframeDesc.CullMode = D3D11_CULL_NONE;
+	wireframeDesc.FrontCounterClockwise = FALSE;
+
 	device_->CreateRasterizerState(&rasterizerDesc, &rasterizerState_);
-	deviceContext_->RSSetState(rasterizerState_);
+	device_->CreateRasterizerState(&wireframeDesc, &wireframeRasterizerState_);
+	//deviceContext_->RSSetState(rasterizerState_);
+	DisableWireframe();
 }
 
 void DX3DManager::InitBlend() {
@@ -156,4 +164,12 @@ void DX3DManager::EnableZDepthWrite() {
 
 void DX3DManager::DisableZDepthWrite() {
 	GetDeviceContext()->OMSetRenderTargets(1, &renderTargetView_, nullptr);
+}
+
+void DX3DManager::EnableWireframe() {
+	deviceContext_->RSSetState(wireframeRasterizerState_);
+}
+
+void DX3DManager::DisableWireframe() {
+	deviceContext_->RSSetState(rasterizerState_);
 }

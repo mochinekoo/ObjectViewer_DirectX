@@ -33,6 +33,7 @@ struct Weight {
 class FBX : public BaseObject {
 private:
 	bool zDepthWrite_;
+	bool wireframe_;
 
 	std::string fileName_;
 	ID3D11Buffer* vertexBuffer_;
@@ -73,7 +74,7 @@ private:
 
 public:
 
-	FBX(const std::string fileName, const bool zDepthWrite = true)
+	FBX(const std::string fileName, const bool zDepthWrite = true, const bool wireFrame = false)
 		: BaseObject("FBX") {
 		fileName_ = fileName;
 		vertexBuffer_ = nullptr;
@@ -91,6 +92,7 @@ public:
 		maxFrame_ = 60;
 		hasAnimation_ = false;
 		zDepthWrite_ = zDepthWrite;
+		wireframe_ = wireFrame;
 	}
 
 	~FBX() {

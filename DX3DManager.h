@@ -43,5 +43,7 @@ namespace DX3DManager {
 
 	 void EnableZDepthWrite();
 	 void DisableZDepthWrite();
+	 void EnableWireframe();
+	 void DisableWireframe();
 
 }
