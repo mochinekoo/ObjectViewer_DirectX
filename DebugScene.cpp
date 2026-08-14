@@ -9,9 +9,13 @@
 using namespace DX3DManager;
 
 void DebugScene::Init() {
-	FBX* fbx = new FBX("grid.fbx", false, true);
-	fbx->SetTag("Grid");
-	ObjectManager::AddObject(fbx);
+	FBX* grid = new FBX("grid.fbx", false, true);
+	grid->SetTag("Grid");
+	ObjectManager::AddObject(grid);
+
+	FBX* gizmo = new FBX("gizmo.fbx", false, false);
+	gizmo->SetTag("Gizmo");
+	ObjectManager::AddObject(gizmo);
 }
 
 void DebugScene::Update() {
