@@ -68,6 +68,9 @@
     <ClCompile Include="Box.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="FbxChild.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Box.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="FbxChild.h">
       <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
