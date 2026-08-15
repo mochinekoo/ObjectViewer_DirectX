@@ -15,6 +15,7 @@
 #include "Box.h"
 #include "DX2DManager.h"
 #include "FontText.h"
+#include "InputManager.h"
 
 #pragma comment(lib, "dxgi.lib")
 
@@ -53,6 +54,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 	InitDX3D();
 	InitImGUI();
+	InputManager::Init(hInstance, GameLib::GetGameWindowHandle());
 	SoundManager::Init();
 	ObjectManager::Init();
 	SceneManager::Init();
@@ -87,6 +89,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			ImGui_ImplWin32_NewFrame();
 			ImGui::NewFrame();
 
+			InputManager::Update();
 			SceneManager::Update();
 			ObjectManager::Update();
 
@@ -219,8 +222,20 @@ void InitImGUI() {
 void DrawDebugImGUI() {
 	BaseScene* currentScene = SceneManager::GetCurrentScene();
 	Camera* currentCamera = CameraManager::GetCurrentCamera();
+	auto leftTilt = InputManager::GetControllerTiltLeft();
 
 	ImGui::Begin("DebugInfo");
+	ImGui::Text("Mouse Left: %d, Mouse Center: %d, Mouse Right: %d", InputManager::CheckPushMouse(0), InputManager::CheckPushMouse(1), InputManager::CheckPushMouse(2));
+	ImGui::Text("Mouse Left: %d, Mouse Center: %d, Mouse Right: %d", InputManager::CheckDownMouse(0), InputManager::CheckDownMouse(1), InputManager::CheckDownMouse(2));
+	ImGui::Text("Xbox %2.2f, %2.2f", InputManager::GetControllerLeftTrigger(), InputManager::GetControllerRightTrigger());
+	ImGui::Text("XBox Tilt: X[%2.2f], Y[%2.2f]", leftTilt.x, leftTilt.y);
+	ImGui::Text("Xbox A Key: %d", InputManager::IsControllerButtonPush(XINPUT_GAMEPAD_A));
+	if (ImGui::Button("Start")) {
+		InputManager::StartControllerVibration(65535, 65535);
+	}
+	if (ImGui::Button("Stop")) {
+		InputManager::StopControllerVibration();
+	}
 	ImGui::Text("CurrentScene: %s", currentScene == nullptr ? "(nullptr)" : currentScene->GetName().c_str());
 	ImGui::Text("ObjectCount: %d", ObjectManager::GetAllObject().size());
 	ImGui::Text("CurrentCamera: %s", currentCamera == nullptr ? "(nullptr)" : currentCamera->GetName().c_str());

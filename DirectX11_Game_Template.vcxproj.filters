@@ -80,6 +80,9 @@
     <ClCompile Include="ImGUI\imgui_impl_dx12.cpp">
       <Filter>ImGUI</Filter>
     </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
@@ -176,6 +179,9 @@
     </ClInclude>
     <ClInclude Include="ImGUI\imgui_impl_dx12.h">
       <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
