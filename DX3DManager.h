@@ -7,6 +7,34 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
+struct Color {
+	float r_ = 0.0f;
+	float g_ = 0.0f;
+	float b_ = 0.0f;
+	float a_ = 1.0f;
+
+	Color(const float r = 0.0f, const float g = 0.0f, const float b = 0.0f, const float a = 1.0f) {
+		r_ = r;
+		g_ = g;
+		b_ = b;
+		a_ = a;
+	}
+
+	static bool Equal(const Color& colorA, const Color& colorB) {
+		return colorA.r_ == colorB.r_ && colorA.g_ == colorB.g_ && colorA.b_ == colorB.b_ && colorA.a_ == colorB.a_;
+	}
+
+	bool operator==(const Color& color) const {
+		return Equal(*this, color);
+	}
+
+	static Color Red() { return Color(1.0f, 0.0f, 0.0f, 1.0f); }
+	static Color Blue() { return Color(0.0f, 0.0f, 1.0f, 1.0f); }
+	static Color Green() { return Color(0.0f, 1.0f, 0.0f, 1.0f); }
+	static Color White() { return Color(1.0f, 1.0f, 1.0f, 1.0f); }
+	static Color Black() { return Color(0.0f, 0.0f, 0.0f, 1.0f); }
+};
+
 struct Vertex {
 	DirectX::XMFLOAT3 location_ = {};
 	DirectX::XMFLOAT4 color_ = {};

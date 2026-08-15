@@ -13,6 +13,8 @@
 #include "resource.h"
 #include "Image.h"
 #include "Box.h"
+#include "DX2DManager.h"
+#include "FontText.h"
 
 #pragma comment(lib, "dxgi.lib")
 
@@ -55,6 +57,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ObjectManager::Init();
 	SceneManager::Init();
 	CameraManager::Init();
+	DX2DManager::Init();
+
+	//const std::string fontName, const int fontSize, const std::string& text, const Color& color) 
+	FontText* text = new FontText(L"メイリオ", 30, L"ああ", {0.0f, 0.0f, 0.0f, 1.0f});
+	text->Init();
+
 
 	MSG msg = {};
 	while (msg.message != WM_QUIT) {
@@ -82,6 +90,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			SceneManager::Update();
 			ObjectManager::Update();
 
+			text->Draw();
+
 			DrawDebugImGUI();
 			DrawCreateBox();
 			SoundManager::DrawDebugImGUI();
@@ -102,29 +112,28 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 }
 
 void InitWindow(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-
-	WNDCLASSEX wndClass = {};
-	wndClass.cbSize = sizeof(WNDCLASSEX); 
-	wndClass.hInstance = hInstance; 
-	wndClass.lpszClassName = "Game";
+	WNDCLASSEXW wndClass = {};
+	wndClass.cbSize = sizeof(WNDCLASSEXW);
+	wndClass.hInstance = hInstance;
+	wndClass.lpszClassName = L"Game";
 	wndClass.lpfnWndProc = WndProc;
 	wndClass.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
 	wndClass.hIconSm = LoadIcon(nullptr, IDI_WINLOGO);
-	wndClass.hCursor = LoadCursor(nullptr, IDC_ARROW); 
-	wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH); 
-	wndClass.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
-	RegisterClassEx(&wndClass);
+	wndClass.hCursor = LoadCursor(nullptr, IDC_ARROW);
+	wndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+	wndClass.lpszMenuName = MAKEINTRESOURCEW(IDR_MENU1);
+	RegisterClassExW(&wndClass);
 
-	mainWindowHandle_ = CreateWindow(
-		"Game",
-		"GameTitle", 
-		WS_OVERLAPPEDWINDOW, 
-		CW_USEDEFAULT, CW_USEDEFAULT, 
+	mainWindowHandle_ = CreateWindowW(
+		L"Game",
+		L"GameTitle",
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, CW_USEDEFAULT,
 		1280, 720,
-		NULL, 
-		NULL, 
-		hInstance, 
-		NULL 
+		NULL,
+		NULL,
+		hInstance,
+		NULL
 	);
 
 	ShowWindow(mainWindowHandle_, nCmdShow);
@@ -153,7 +162,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					openFileName.nFilterIndex = 1;
 					openFileName.nMaxFile = MAX_PATH;
 					openFileName.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
-					if (GetOpenFileName(&openFileName)) {
+					if (GetOpenFileNameA(&openFileName)) {
 						std::string fileNameString = fileNameBuffer;
 						if (fileNameString.ends_with(".fbx")) {
 							FBX* fbx = new FBX(fileNameBuffer);

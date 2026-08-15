@@ -44,7 +44,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -133,9 +133,11 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="DebugScene.cpp" />
+    <ClCompile Include="DX2DManager.cpp" />
     <ClCompile Include="DX3DManager.cpp" />
     <ClCompile Include="FBX.cpp" />
     <ClCompile Include="FbxChild.cpp" />
+    <ClCompile Include="FontText.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageManager.cpp" />
     <ClCompile Include="ImGUI\imgui.cpp" />
@@ -146,6 +148,7 @@
     <ClCompile Include="ImGUI\imgui_impl_dx12.cpp" />
     <ClCompile Include="ImGUI\imgui_impl_dx9.cpp" />
     <ClCompile Include="ImGUI\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGUI\imgui_stdlib.cpp" />
     <ClCompile Include="ImGUI\imgui_tables.cpp" />
     <ClCompile Include="ImGUI\imgui_widgets.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -162,8 +165,10 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="DebugScene.h" />
+    <ClInclude Include="DX2DManager.h" />
     <ClInclude Include="DX3DManager.h" />
     <ClInclude Include="FbxChild.h" />
+    <ClInclude Include="FontText.h" />
     <ClInclude Include="Framework.h" />
     <ClInclude Include="FBX.h" />
     <ClInclude Include="Image.h" />
@@ -176,6 +181,7 @@
     <ClInclude Include="ImGUI\imgui_impl_dx9.h" />
     <ClInclude Include="ImGUI\imgui_impl_win32.h" />
     <ClInclude Include="ImGUI\imgui_internal.h" />
+    <ClInclude Include="ImGUI\imgui_stdlib.h" />
     <ClInclude Include="ImGUI\imstb_rectpack.h" />
     <ClInclude Include="ImGUI\imstb_textedit.h" />
     <ClInclude Include="ImGUI\imstb_truetype.h" />
