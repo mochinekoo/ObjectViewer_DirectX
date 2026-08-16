@@ -60,4 +60,10 @@ public:
 	void Update() override;
 	void Draw() override;
 	void Release() override;
+
+
+	bool IsZDepthWrite() const { return zDepthWrite_; }
+	void SetZDepthWrite(const bool flag) { zDepthWrite_ = flag; }
+	bool IsWireframe() const { return wireframe_; }
+	void SetWireframe(const bool flag) { wireframe_ = flag; }
 };

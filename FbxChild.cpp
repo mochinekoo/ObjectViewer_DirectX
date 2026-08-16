@@ -42,10 +42,10 @@ void FbxChild::Update() {
 }
 
 void FbxChild::Draw() {
-	if (!zDepthWrite_) {
+	if (!zDepthWrite_ || !rootFbx_->IsZDepthWrite()) {
 		DisableZDepthWrite();
 	}
-	if (wireframe_) {
+	if (wireframe_ || rootFbx_->IsWireframe()) {
 		EnableWireframe();
 	}
 	else {
@@ -131,7 +131,6 @@ void FbxChild::Draw() {
 
 	GetDeviceContext()->RSSetState(nullptr);
 	EnableZDepthWrite();
-	DisableWireframe();
 
 
 	std::string title = mesh_->GetName();

@@ -27,10 +27,23 @@ void FBX::Draw() {
 	ShaderManager::SetPixelShader("PixelShader.hlsl");
 	ShaderManager::SetVertexShader("VertexShader.hlsl");
 
+	if (!zDepthWrite_) {
+		DisableZDepthWrite();
+	}
+	if (wireframe_) {
+		EnableWireframe();
+	}
+	else {
+		DisableWireframe();
+	}
+
 	for (int i = 0; i < childFbx_.size(); i++) {
 		FbxChild* fbx = childFbx_[i];
 		fbx->Draw();
 	}
+
+	EnableZDepthWrite();
+	DisableWireframe();
 
 	ImGui::Begin(fileName_.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
 
