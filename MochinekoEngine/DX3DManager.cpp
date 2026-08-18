@@ -9,7 +9,7 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
 
-using namespace GameLib;
+using namespace MochinekoEngine;
 
 namespace DX3DManager {
 	inline ID3D11Device* device_ = nullptr;

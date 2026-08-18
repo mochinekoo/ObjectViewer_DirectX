@@ -50,7 +50,7 @@ void InputManager::Update() {
     );
 
     GetCursorPos(&mousePostion_);
-    ScreenToClient(GameLib::GetGameWindowHandle(), &mousePostion_);
+    ScreenToClient(MochinekoEngine::GetGameWindowHandle(), &mousePostion_);
 
     XInputGetState(0, &controllerState_);
 }

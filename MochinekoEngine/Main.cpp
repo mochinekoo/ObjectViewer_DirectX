@@ -23,7 +23,7 @@ namespace {
 	inline bool canShowBoxWindow_ = false;
 }
 
-namespace GameLib {
+namespace MochinekoEngine {
 	inline HWND mainWindowHandle_ = {};
 	inline bool canShutdown_ = false;
 
@@ -40,7 +40,7 @@ namespace GameLib {
 	}
 }
 
-using namespace GameLib;
+using namespace MochinekoEngine;
 using namespace DX3DManager;
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -54,7 +54,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 	InitDX3D();
 	InitImGUI();
-	InputManager::Init(hInstance, GameLib::GetGameWindowHandle());
+	InputManager::Init(hInstance, MochinekoEngine::GetGameWindowHandle());
 	SoundManager::Init();
 	ObjectManager::Init();
 	SceneManager::Init();
@@ -68,7 +68,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	MSG msg = {};
 	while (msg.message != WM_QUIT) {
-		if (GameLib::CanShutdown()) {
+		if (MochinekoEngine::CanShutdown()) {
 			break;
 		}
 
@@ -159,7 +159,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					char fileNameBuffer[MAX_PATH] = {};
 					OPENFILENAMEA openFileName = {};
 					openFileName.lStructSize = sizeof(OPENFILENAMEA);
-					openFileName.hwndOwner = GameLib::GetGameWindowHandle();
+					openFileName.hwndOwner = MochinekoEngine::GetGameWindowHandle();
 					openFileName.lpstrFilter = "FBXファイル(.fbx)\0*.fbx\0画像ファイル(.png)\0*.png\0音声ファイル(.wav、.mp3)\0*.wav;*.mp3\0";
 					openFileName.lpstrFile = fileNameBuffer;
 					openFileName.nFilterIndex = 1;
@@ -184,7 +184,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					break;
 				}
 				case ID_40002: {
-					GameLib::Shutdown();
+					MochinekoEngine::Shutdown();
 					break;
 				}
 				case ID_40003: {

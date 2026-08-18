@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
 
-namespace GameLib {
+namespace MochinekoEngine {
 
 	HWND GetGameWindowHandle();
 }
