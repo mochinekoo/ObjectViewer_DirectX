@@ -50,12 +50,11 @@ void Box::Draw() {
 	GetDeviceContext()->Draw(6, 0);
 
 	GetDeviceContext()->RSSetState(nullptr);
+}
 
-
-
+void Box::DrawImGUI() {
 	std::string title = GetName() + "(" + GetTag() + ")";
 	ImGui::Begin(title.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
-
 	if (ImGui::BeginTabBar("Tab")) {
 		if (ImGui::BeginTabItem("ObjectInfo")) {
 

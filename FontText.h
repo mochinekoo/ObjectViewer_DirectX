@@ -30,7 +30,7 @@ public:
 	void Init() override;
 	void Update() override;
 	void Draw() override;
-	void DrawImGUI();
+	void DrawImGUI() override;
 	void Release() override;
 
 	FontData GetFontData() const { return fontData_; }

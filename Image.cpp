@@ -50,6 +50,10 @@ void Image::Draw() {
 
 	GetDeviceContext()->Draw(6, 0);
 
+	GetDeviceContext()->RSSetState(nullptr);
+}
+
+void Image::DrawImGUI() {
 	std::string title = GetName() + "(" + GetTag() + ")";
 	ImGui::Begin(title.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
 
@@ -75,10 +79,6 @@ void Image::Draw() {
 	ImGui::EndTabBar();
 
 	ImGui::End();
-
-
-
-	GetDeviceContext()->RSSetState(nullptr);
 }
 
 void Image::Release() {

@@ -55,8 +55,6 @@ void FontText::Draw() {
 		fontData_.brush_
 	);
 
-	DrawImGUI();
-
 	DX2DManager::GetRenderTarget()->EndDraw();
 }
 

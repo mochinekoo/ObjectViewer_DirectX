@@ -31,6 +31,9 @@ void ObjectManager::Update() {
 		else {
 			object->Update();
 			object->Draw();
+			if (object->IsShowImGUI()) {
+				object->DrawImGUI();
+			}
 		}
 	}
 }

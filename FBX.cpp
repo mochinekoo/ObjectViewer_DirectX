@@ -44,7 +44,9 @@ void FBX::Draw() {
 
 	EnableZDepthWrite();
 	DisableWireframe();
+}
 
+void FBX::DrawImGUI() {
 	ImGui::Begin(fileName_.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
 
 	if (ImGui::BeginTabBar("Tab")) {
@@ -66,7 +68,7 @@ void FBX::Draw() {
 			ImGui::EndTabItem();
 		}
 		if (ImGui::BeginTabItem("Light")) {
-			
+
 			for (int i = 0; i < rootNode_->GetChildCount(); i++) {
 				FbxNode* node = rootNode_->GetChild(i);
 				FbxLight* light = node->GetLight();
@@ -77,7 +79,7 @@ void FBX::Draw() {
 					float r = light->Color.Get()[0];
 					float g = light->Color.Get()[1];
 					float b = light->Color.Get()[2];
-					ImGui::Text("Color: R: %.1f (%.1f), G: %.1f (%.1f), B: %.1f (%.1f)", r, r*255, g, g*255, b, b*255);
+					ImGui::Text("Color: R: %.1f (%.1f), G: %.1f (%.1f), B: %.1f (%.1f)", r, r * 255, g, g * 255, b, b * 255);
 
 					ImGui::TreePop();
 				}

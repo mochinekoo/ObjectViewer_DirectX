@@ -134,8 +134,9 @@ void FbxChild::Draw() {
 
 	GetDeviceContext()->RSSetState(nullptr);
 	EnableZDepthWrite();
+}
 
-
+void FbxChild::DrawImGUI() {
 	std::string title = mesh_->GetName();
 	ImGui::Begin(title.c_str(), nullptr, ImGuiWindowFlags_NoDocking);
 
