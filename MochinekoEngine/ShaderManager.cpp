@@ -1,7 +1,8 @@
-#include "ShaderManager.h"
+﻿#include "ShaderManager.h"
 #include <vector>
 #include "DX3DManager.h"
 #include <map>
+#include <filesystem>
 
 using namespace DX3DManager;
 
@@ -19,6 +20,12 @@ void ShaderManager::Release() {
 }
 
 void ShaderManager::AddShader(const ShaderType& type, const std::string& fileName) {
+	if (!std::filesystem::exists(fileName)) {
+		MessageBox(NULL, L"シェーダーが見つかりませんでした。", NULL, MB_OK);
+		ExitProcess(-1);
+		return;
+	}
+
 	ID3DBlob* shaderBlob = nullptr;
 	ID3DBlob* errorBlob = nullptr;
 
