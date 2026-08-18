@@ -130,88 +130,86 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Box.cpp" />
-    <ClCompile Include="CameraManager.cpp" />
-    <ClCompile Include="DebugScene.cpp" />
-    <ClCompile Include="DX2DManager.cpp" />
-    <ClCompile Include="DX3DManager.cpp" />
-    <ClCompile Include="FBX.cpp" />
-    <ClCompile Include="FbxChild.cpp" />
-    <ClCompile Include="FontText.cpp" />
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="ImageManager.cpp" />
-    <ClCompile Include="ImGUI\imgui.cpp" />
-    <ClCompile Include="ImGUI\imgui_demo.cpp" />
-    <ClCompile Include="ImGUI\imgui_draw.cpp" />
-    <ClCompile Include="ImGUI\imgui_impl_dx10.cpp" />
-    <ClCompile Include="ImGUI\imgui_impl_dx11.cpp" />
-    <ClCompile Include="ImGUI\imgui_impl_dx12.cpp" />
-    <ClCompile Include="ImGUI\imgui_impl_dx9.cpp" />
-    <ClCompile Include="ImGUI\imgui_impl_win32.cpp" />
-    <ClCompile Include="ImGUI\imgui_stdlib.cpp" />
-    <ClCompile Include="ImGUI\imgui_tables.cpp" />
-    <ClCompile Include="ImGUI\imgui_widgets.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ObjectManager.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="ShaderManager.cpp" />
-    <ClCompile Include="SoundManager.cpp" />
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="MochinekoEngine\Box.cpp" />
+    <ClCompile Include="MochinekoEngine\CameraManager.cpp" />
+    <ClCompile Include="MochinekoEngine\DebugScene.cpp" />
+    <ClCompile Include="MochinekoEngine\DX2DManager.cpp" />
+    <ClCompile Include="MochinekoEngine\DX3DManager.cpp" />
+    <ClCompile Include="MochinekoEngine\FBX.cpp" />
+    <ClCompile Include="MochinekoEngine\FbxChild.cpp" />
+    <ClCompile Include="MochinekoEngine\FontText.cpp" />
+    <ClCompile Include="MochinekoEngine\Image.cpp" />
+    <ClCompile Include="MochinekoEngine\ImageManager.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_demo.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_draw.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx10.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx11.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx12.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx9.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_win32.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_stdlib.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_tables.cpp" />
+    <ClCompile Include="MochinekoEngine\ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="MochinekoEngine\InputManager.cpp" />
+    <ClCompile Include="MochinekoEngine\Main.cpp" />
+    <ClCompile Include="MochinekoEngine\ObjectManager.cpp" />
+    <ClCompile Include="MochinekoEngine\SceneManager.cpp" />
+    <ClCompile Include="MochinekoEngine\ShaderManager.cpp" />
+    <ClCompile Include="MochinekoEngine\SoundManager.cpp" />
+    <ClCompile Include="MochinekoEngine\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseObject.h" />
-    <ClInclude Include="BaseScene.h" />
-    <ClInclude Include="Box.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="CameraManager.h" />
-    <ClInclude Include="DebugScene.h" />
-    <ClInclude Include="DX2DManager.h" />
-    <ClInclude Include="DX3DManager.h" />
-    <ClInclude Include="FbxChild.h" />
-    <ClInclude Include="FontText.h" />
-    <ClInclude Include="Framework.h" />
-    <ClInclude Include="FBX.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="ImageManager.h" />
-    <ClInclude Include="ImGUI\imconfig.h" />
-    <ClInclude Include="ImGUI\imgui.h" />
-    <ClInclude Include="ImGUI\imgui_impl_dx10.h" />
-    <ClInclude Include="ImGUI\imgui_impl_dx11.h" />
-    <ClInclude Include="ImGUI\imgui_impl_dx12.h" />
-    <ClInclude Include="ImGUI\imgui_impl_dx9.h" />
-    <ClInclude Include="ImGUI\imgui_impl_win32.h" />
-    <ClInclude Include="ImGUI\imgui_internal.h" />
-    <ClInclude Include="ImGUI\imgui_stdlib.h" />
-    <ClInclude Include="ImGUI\imstb_rectpack.h" />
-    <ClInclude Include="ImGUI\imstb_textedit.h" />
-    <ClInclude Include="ImGUI\imstb_truetype.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="ObjectManager.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="ShaderManager.h" />
-    <ClInclude Include="SoundManager.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Transform.h" />
+    <ClInclude Include="MochinekoEngine\BaseObject.h" />
+    <ClInclude Include="MochinekoEngine\BaseScene.h" />
+    <ClInclude Include="MochinekoEngine\Box.h" />
+    <ClInclude Include="MochinekoEngine\Camera.h" />
+    <ClInclude Include="MochinekoEngine\CameraManager.h" />
+    <ClInclude Include="MochinekoEngine\DebugScene.h" />
+    <ClInclude Include="MochinekoEngine\DX2DManager.h" />
+    <ClInclude Include="MochinekoEngine\DX3DManager.h" />
+    <ClInclude Include="MochinekoEngine\FBX.h" />
+    <ClInclude Include="MochinekoEngine\FbxChild.h" />
+    <ClInclude Include="MochinekoEngine\FontText.h" />
+    <ClInclude Include="MochinekoEngine\Framework.h" />
+    <ClInclude Include="MochinekoEngine\Image.h" />
+    <ClInclude Include="MochinekoEngine\ImageManager.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imconfig.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx10.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx11.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx12.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx9.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_win32.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_internal.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imgui_stdlib.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imstb_rectpack.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imstb_textedit.h" />
+    <ClInclude Include="MochinekoEngine\ImGUI\imstb_truetype.h" />
+    <ClInclude Include="MochinekoEngine\InputManager.h" />
+    <ClInclude Include="MochinekoEngine\ObjectManager.h" />
+    <ClInclude Include="MochinekoEngine\resource.h" />
+    <ClInclude Include="MochinekoEngine\SceneManager.h" />
+    <ClInclude Include="MochinekoEngine\ShaderManager.h" />
+    <ClInclude Include="MochinekoEngine\SoundManager.h" />
+    <ClInclude Include="MochinekoEngine\Texture.h" />
+    <ClInclude Include="MochinekoEngine\Transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="PixelShader.hlsl">
+    <FxCompile Include="MochinekoEngine\PixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
-    <FxCompile Include="VertexShader.hlsl">
+    <FxCompile Include="MochinekoEngine\VertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc" />
+    <None Include="MochinekoEngine\Resource.aps" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MochinekoEngine\Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
