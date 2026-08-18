@@ -1,214 +1,243 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="MochinekoEngine\Main.cpp" />
     <ClCompile Include="MochinekoEngine\DebugScene.cpp">
-      <Filter>Scene</Filter>
+      <Filter>MochinekoEngine\Scene</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\CameraManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\DX2DManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\DX3DManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImageManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\InputManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ObjectManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\SceneManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ShaderManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\SoundManager.cpp">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\Texture.cpp">
-      <Filter>Data</Filter>
+      <Filter>MochinekoEngine\Data</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\Box.cpp">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\FbxChild.cpp">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\FontText.cpp">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\FBX.cpp">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\Image.cpp">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_win32.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_stdlib.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_tables.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_widgets.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_demo.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_draw.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx9.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx10.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx11.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="MochinekoEngine\ImGUI\imgui_impl_dx12.cpp">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="MochinekoEngine\Main.cpp">
+      <Filter>MochinekoEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MochinekoEngine\Framework.h" />
     <ClInclude Include="MochinekoEngine\BaseScene.h">
-      <Filter>Scene</Filter>
+      <Filter>MochinekoEngine\Scene</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\DebugScene.h">
-      <Filter>Scene</Filter>
+      <Filter>MochinekoEngine\Scene</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\CameraManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\DX2DManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\DX3DManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImageManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\InputManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ObjectManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\SceneManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ShaderManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\SoundManager.h">
-      <Filter>Manager</Filter>
+      <Filter>MochinekoEngine\Manager</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\Camera.h">
-      <Filter>Data</Filter>
+      <Filter>MochinekoEngine\Data</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\Texture.h">
-      <Filter>Data</Filter>
+      <Filter>MochinekoEngine\Data</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\Transform.h">
-      <Filter>Data</Filter>
+      <Filter>MochinekoEngine\Data</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\BaseObject.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\Box.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\FbxChild.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\FontText.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\FBX.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\Image.h">
-      <Filter>Object</Filter>
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
-    <ClInclude Include="MochinekoEngine\resource.h" />
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_win32.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_internal.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_stdlib.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imstb_rectpack.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imstb_textedit.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imstb_truetype.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imconfig.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx9.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx10.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx11.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="MochinekoEngine\ImGUI\imgui_impl_dx12.h">
-      <Filter>ImGUI</Filter>
+      <Filter>MochinekoEngine\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="MochinekoEngine\Framework.h">
+      <Filter>MochinekoEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MochinekoEngine\resource.h">
+      <Filter>MochinekoEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{78bb1e0d-db19-43eb-a3a3-8def4611d8b2}</UniqueIdentifier>
+    <Filter Include="MochinekoEngine">
+      <UniqueIdentifier>{8b8027f2-56bb-4018-bf37-20b64a9431b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{0be385ad-cb9c-4c71-a6c8-30a50126d1ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ImGUI">
-      <UniqueIdentifier>{5ee5478a-19e5-4251-b571-1acb9c7f75c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Data">
+    <Filter Include="MochinekoEngine\Data">
       <UniqueIdentifier>{2287285c-6e27-42d6-8415-61c4f9969167}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene">
+    <Filter Include="MochinekoEngine\ImGUI">
+      <UniqueIdentifier>{5ee5478a-19e5-4251-b571-1acb9c7f75c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MochinekoEngine\Manager">
+      <UniqueIdentifier>{78bb1e0d-db19-43eb-a3a3-8def4611d8b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MochinekoEngine\Object">
+      <UniqueIdentifier>{0be385ad-cb9c-4c71-a6c8-30a50126d1ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MochinekoEngine\Scene">
       <UniqueIdentifier>{79b8cb87-80b9-40f3-b9fc-4bf208f9e126}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{11f12cf4-df9c-4dd9-a5ee-44a0fcae8e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Object">
+      <UniqueIdentifier>{269f3fcc-8f34-41b3-928b-bc1555db1552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{1a0f02b3-4ff8-4e1f-b061-e351d84c9445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MochinekoEngine\Shader">
+      <UniqueIdentifier>{1e64043c-fc8a-4ae2-b411-c7ecd5823fc6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="MochinekoEngine\PixelShader.hlsl" />
-    <FxCompile Include="MochinekoEngine\VertexShader.hlsl" />
+    <FxCompile Include="MochinekoEngine\VertexShader.hlsl">
+      <Filter>MochinekoEngine\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="MochinekoEngine\PixelShader.hlsl">
+      <Filter>MochinekoEngine\Shader</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MochinekoEngine\Resource.aps" />
+    <None Include="MochinekoEngine\Resource.aps">
+      <Filter>MochinekoEngine</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MochinekoEngine\Resource.rc" />
+    <ResourceCompile Include="MochinekoEngine\Resource.rc">
+      <Filter>MochinekoEngine</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
