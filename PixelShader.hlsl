@@ -5,12 +5,17 @@ cbuffer ConstantBuffer : register(b0) {
     matrix wvpMatrix;
     float4 diffuse;
     float4 ambient;
+    float4 specular;
+    float3 emission;
+    float shininess;
     int hasTexture;
+    float3 lightDirection;
 };
 
 struct PSInput
 {
     float4 position : SV_POSITION;
+    float3 normal : NORMAL;
     float4 color : COLOR;
     float2 uv : TEXCOORD0;
 };
@@ -25,5 +30,5 @@ float4 main(PSInput input) : SV_TARGET {
         color = diffuse;
     }
     
-    return color;
+    return color * input.color;
 }

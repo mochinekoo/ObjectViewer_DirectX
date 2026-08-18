@@ -37,6 +37,7 @@ struct Color {
 
 struct Vertex {
 	DirectX::XMFLOAT3 location_ = {};
+	DirectX::XMFLOAT3 normal_ = {};
 	DirectX::XMFLOAT4 color_ = {};
 	DirectX::XMFLOAT2 uv_ = {};
 };
@@ -45,7 +46,11 @@ struct ConstantBuffer {
 	DirectX::XMMATRIX wvpMatrix_ = {};
 	DirectX::XMFLOAT4 diffuse_ = {};
 	DirectX::XMFLOAT4 ambient_ = {};
+	DirectX::XMFLOAT4 specular_ = {};
+	DirectX::XMFLOAT3 emission_ = {};
+	float shininess_ = 0.0;
 	int hasTexture_ = FALSE;
+	DirectX::XMFLOAT3 lightDirection_ = {};
 };
 
 namespace DX3DManager {

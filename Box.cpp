@@ -87,12 +87,12 @@ void Box::Release()
 
 void Box::InitVertexBuffer() {
 	vertexList_.resize(6);
-	vertexList_[0] = { {0.0f, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
-	vertexList_[1] = { {0.0f, (float) height_, 0.0f}, color_, {0.0f, 0.0f} };
-	vertexList_[2] = { { (float)width_, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
-	vertexList_[3] = { { (float)width_, 0.0f, 0.0f}, color_, {0.0f, 0.0f} };
-	vertexList_[4] = { { (float) width_,  (float)height_, 0.0f}, color_, {0.0f, 0.0f} };
-	vertexList_[5] = { {0.0f,  (float)height_, 0.0f}, color_, {0.0f, 0.0f} };
+	vertexList_[0] = { {0.0f, 0.0f, 0.0f}, {}, color_, {0.0f, 0.0f} };
+	vertexList_[1] = { {0.0f, (float) height_, 0.0f}, {}, color_, {0.0f, 0.0f} };
+	vertexList_[2] = { { (float)width_, 0.0f, 0.0f}, {}, color_, {0.0f, 0.0f} };
+	vertexList_[3] = { { (float)width_, 0.0f, 0.0f}, {}, color_, {0.0f, 0.0f} };
+	vertexList_[4] = { { (float) width_,  (float)height_, 0.0f}, {}, color_, {0.0f, 0.0f} };
+	vertexList_[5] = { {0.0f,  (float)height_, 0.0f}, {}, color_, {0.0f, 0.0f} };
 
 	D3D11_BUFFER_DESC vertexDesc = {};
 	vertexDesc.Usage = D3D11_USAGE_DYNAMIC;

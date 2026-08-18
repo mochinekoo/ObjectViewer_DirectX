@@ -36,7 +36,10 @@ void FbxChild::Update() {
 		constantBuffer.wvpMatrix_ = XMMatrixTranspose(world * view * projection);
 		constantBuffer.diffuse_ = materialList_[i].diffuse_;
 		constantBuffer.ambient_ = materialList_[i].ambient_;
+		constantBuffer.specular_ = materialList_[i].specular_;
+		constantBuffer.emission_ = materialList_[i].emission_;
 		constantBuffer.hasTexture_ = (materialList_[i].texture_ != nullptr);
+		constantBuffer.lightDirection_ = { 0.0f, -1.0f, 0.0f };
 		GetDeviceContext()->UpdateSubresource(constantBufferList_[i], 0, nullptr, &constantBuffer, 0, 0);
 	}
 }
@@ -244,6 +247,9 @@ void FbxChild::InitVertexBuffer() {
 
 	for (DWORD polyCount = 0; polyCount < polygonCount_; polyCount++) {
 		for (int vertexCount = 0; vertexCount < 3; vertexCount++) {
+			FbxVector4 normal = {};
+			mesh_->GetPolygonVertexNormal(polyCount, vertexCount, normal);
+
 			int vertexIndex = mesh_->GetPolygonVertex(polyCount, vertexCount);
 			FbxVector4 vertexLoc = mesh_->GetControlPointAt(vertexIndex);
 			int uvIndex = mesh_->GetTextureUVIndex(polyCount, vertexCount);
@@ -253,6 +259,7 @@ void FbxChild::InitVertexBuffer() {
 			vertex.location_ = { (float)vertexLoc[0], (float)vertexLoc[2], (float)vertexLoc[1] };
 			vertex.color_ = { 1.0f, 1.0f, 1.0f, 1.0f };
 			vertex.uv_ = { (float)uvLoc.mData[0], (float)(1.0f - uvLoc.mData[1]) };
+			vertex.normal_ = { (float)normal[0], (float)normal[1], (float)normal[2] };
 			vertexList_.push_back(vertex);
 
 			indexVertexList_.push_back(vertexIndex);
@@ -318,12 +325,23 @@ void FbxChild::InitMaterial() {
 		FbxProperty property = material->FindProperty(FbxSurfaceMaterial::sDiffuse);
 		int textureCount = property.GetSrcObjectCount<FbxFileTexture>();
 		FbxSurfaceLambert* lambartMaterial = (FbxSurfaceLambert*)node_->GetMaterial(i);
+		FbxSurfacePhong* phongMaterial = (FbxSurfacePhong*)node_->GetMaterial(i);
 		FbxDouble3 diffuse = lambartMaterial->Diffuse;
 		FbxDouble3 ambient = lambartMaterial->Ambient;
+		FbxDouble shininess = phongMaterial->Shininess;
+		FbxDouble3 emission = lambartMaterial->Emissive;
+		FbxDouble3 specular = FbxDouble3(0.0, 0.0, 0.0);
+
+		if (phongMaterial != nullptr) {
+			specular = phongMaterial->Specular;
+		}
 
 		Material materialData = {};
 		materialData.diffuse_ = { (float)diffuse[0], (float)diffuse[1], (float)diffuse[2], 1.0f };
 		materialData.ambient_ = { (float)ambient[0], (float)ambient[1], (float)ambient[2], 1.0f };
+		materialData.specular_ = { (float)specular[0], (float)specular[1], (float)specular[2], 1.0f };
+		materialData.emission_ = { (float)emission[0], (float)emission[1], (float)emission[2] };
+		materialData.shininess_ = shininess;
 
 		if (textureCount > 0) {
 			FbxFileTexture* fileTexture = property.GetSrcObject<FbxFileTexture>();

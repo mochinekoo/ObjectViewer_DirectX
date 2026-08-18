@@ -16,6 +16,8 @@ struct Material {
 	DirectX::XMFLOAT4 ambient_ = {};
 	DirectX::XMFLOAT4 diffuse_ = {};
 	DirectX::XMFLOAT4 specular_ = {};
+	DirectX::XMFLOAT3 emission_ = {};
+	float shininess_ = 0.0;
 	Texture* texture_ = nullptr;
 };
 
