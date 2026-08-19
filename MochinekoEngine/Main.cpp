@@ -89,6 +89,31 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			ImGui_ImplWin32_NewFrame();
 			ImGui::NewFrame();
 
+			HRESULT result = GetDevice()->GetDeviceRemovedReason();
+			if (result != S_OK) {
+				wchar_t* buffer = nullptr;
+
+				DWORD size = FormatMessageW(
+					FORMAT_MESSAGE_ALLOCATE_BUFFER |
+					FORMAT_MESSAGE_FROM_SYSTEM |
+					FORMAT_MESSAGE_IGNORE_INSERTS,
+					nullptr,
+					result,
+					MAKELANGID(LANG_JAPANESE, SUBLANG_DEFAULT),
+					reinterpret_cast<LPWSTR>(&buffer),
+					0,
+					nullptr
+				);
+
+				std::wstring message(buffer, size);
+				LocalFree(buffer);
+
+				MessageBox(NULL, message.c_str(), NULL, MB_OK);
+				ExitProcess(-1);
+				return -1;
+			}
+			
+
 			InputManager::Update();
 			SceneManager::Update();
 			ObjectManager::Update();
