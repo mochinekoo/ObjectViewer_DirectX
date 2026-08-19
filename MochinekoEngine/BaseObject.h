@@ -22,6 +22,7 @@ public:
 		isDead_ = false;
 		transform_ = Transform();
 		drawHighOrder_ = 0;
+		showImGUI_ = true;
 	};
 	virtual ~BaseObject() {};
 
