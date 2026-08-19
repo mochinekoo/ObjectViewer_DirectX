@@ -107,8 +107,8 @@ void FbxChild::Draw() {
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 
-	ShaderManager::SetPixelShader("PixelShader.hlsl");
-	ShaderManager::SetVertexShader("VertexShader.hlsl");
+	ShaderManager::SetPixelShader("MochinekoEngine/PixelShader.hlsl");
+	ShaderManager::SetVertexShader("MochinekoEngine/VertexShader.hlsl");
 
 	GetDeviceContext()->IASetVertexBuffers(0, 1, &vertexBuffer_, &stride, &offset);
 	GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);

@@ -24,8 +24,8 @@ void FBX::Update() {
 }
 
 void FBX::Draw() {
-	ShaderManager::SetPixelShader("PixelShader.hlsl");
-	ShaderManager::SetVertexShader("VertexShader.hlsl");
+	ShaderManager::SetPixelShader("MochinekoEngine/PixelShader.hlsl");
+	ShaderManager::SetVertexShader("MochinekoEngine/VertexShader.hlsl");
 
 	if (!zDepthWrite_) {
 		DisableZDepthWrite();

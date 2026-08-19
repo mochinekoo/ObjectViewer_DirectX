@@ -36,8 +36,8 @@ void DX3DManager::InitDX3D() {
 
 void DX3DManager::InitShader() {
 	ShaderManager::Init();
-	ShaderManager::AddShader(ShaderType::PIXEL_SHADER, "PixelShader.hlsl");
-	ShaderManager::AddShader(ShaderType::VERTEX_SHADER, "VertexShader.hlsl");
+	ShaderManager::AddShader(ShaderType::PIXEL_SHADER, "MochinekoEngine/PixelShader.hlsl");
+	ShaderManager::AddShader(ShaderType::VERTEX_SHADER, "MochinekoEngine/VertexShader.hlsl");
 }
 
 void DX3DManager::InitDevice() {
@@ -55,12 +55,14 @@ void DX3DManager::InitDevice() {
 	swapchainDesc.SampleDesc.Count = 1;	
 	swapchainDesc.SampleDesc.Quality = 0;	
 
+	UINT createFlags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
+	createFlags |= D3D11_CREATE_DEVICE_DEBUG;
 	D3D_FEATURE_LEVEL level = {};
 	D3D11CreateDeviceAndSwapChain(
 		nullptr,
 		D3D_DRIVER_TYPE_HARDWARE,
 		nullptr,
-		D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+		createFlags,
 		nullptr,
 		0,
 		D3D11_SDK_VERSION,

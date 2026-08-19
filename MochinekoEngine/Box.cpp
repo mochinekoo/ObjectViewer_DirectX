@@ -36,8 +36,8 @@ void Box::Draw() {
 	UINT stride = sizeof(Vertex);
 	UINT offset = 0;
 
-	ShaderManager::SetPixelShader("PixelShader.hlsl");
-	ShaderManager::SetVertexShader("VertexShader.hlsl");
+	ShaderManager::SetPixelShader("MochinekoEngine/PixelShader.hlsl");
+	ShaderManager::SetVertexShader("MochinekoEngine/VertexShader.hlsl");
 
 	ID3D11ShaderResourceView* nullSrv = { nullptr };
 	GetDeviceContext()->PSSetShaderResources(0, 1, &nullSrv);
