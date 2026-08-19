@@ -158,6 +158,8 @@
     <ClCompile Include="MochinekoEngine\ShaderManager.cpp" />
     <ClCompile Include="MochinekoEngine\SoundManager.cpp" />
     <ClCompile Include="MochinekoEngine\Texture.cpp" />
+    <ClCompile Include="MochinekoEngine\VideoObject.cpp" />
+    <ClCompile Include="MochinekoEngine\VideoData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MochinekoEngine\BaseObject.h" />
@@ -194,6 +196,8 @@
     <ClInclude Include="MochinekoEngine\SoundManager.h" />
     <ClInclude Include="MochinekoEngine\Texture.h" />
     <ClInclude Include="MochinekoEngine\Transform.h" />
+    <ClInclude Include="MochinekoEngine\VideoObject.h" />
+    <ClInclude Include="MochinekoEngine\VideoData.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="MochinekoEngine\PixelShader.hlsl">

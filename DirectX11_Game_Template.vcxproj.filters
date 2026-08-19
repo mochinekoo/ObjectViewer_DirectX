@@ -85,6 +85,12 @@
     <ClCompile Include="MochinekoEngine\Main.cpp">
       <Filter>MochinekoEngine</Filter>
     </ClCompile>
+    <ClCompile Include="MochinekoEngine\VideoData.cpp">
+      <Filter>MochinekoEngine\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="MochinekoEngine\VideoObject.cpp">
+      <Filter>MochinekoEngine\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MochinekoEngine\BaseScene.h">
@@ -188,6 +194,12 @@
     </ClInclude>
     <ClInclude Include="MochinekoEngine\resource.h">
       <Filter>MochinekoEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MochinekoEngine\VideoData.h">
+      <Filter>MochinekoEngine\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="MochinekoEngine\VideoObject.h">
+      <Filter>MochinekoEngine\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
