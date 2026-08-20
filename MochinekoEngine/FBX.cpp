@@ -1,4 +1,4 @@
-#include "FBX.h"
+﻿#include "FBX.h"
 #include <vector>
 #include "fbxsdk.h"
 #include "DX3DManager.h"
@@ -7,12 +7,17 @@
 #include "ShaderManager.h"
 #include "Camera.h"
 #include "CameraManager.h"
+#include <filesystem>
 
 using namespace fbxsdk;
 using namespace DX3DManager;
 using namespace DirectX;
 
 void FBX::Init() {
+	if (!std::filesystem::exists(fileName_)) {
+		MessageBox(NULL, L"ファイルが見つかりません", NULL, MB_OK);
+		return;
+	}
 	InitFBX();
 } 
 
