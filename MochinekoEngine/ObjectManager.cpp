@@ -1,4 +1,6 @@
 #include "ObjectManager.h"
+#include <Windows.h>
+#include "SphereCollider.h"
 
 namespace ObjectManager {
 	std::vector<BaseObject*> objectList_;
@@ -21,9 +23,39 @@ void ObjectManager::Update() {
 		}
 	}
 
+	for (int i = 0; i < objectList_.size(); i++) {
+		BaseObject* objectA = objectList_[i];
+		auto& colliderListA = objectA->GetColliderList();
+		for (int a = 1; a < objectList_.size(); a++) {
+			BaseObject* objectB = objectList_[a];
+			auto& colliderListB = objectB->GetColliderList();
+
+			if (objectA == objectB) break;
+
+			for (int aCol = 0; aCol < colliderListA.size(); aCol++) {
+				BaseCollider* colliderA = colliderListA[aCol];
+				SphereCollider* sphereColA = dynamic_cast<SphereCollider*>(colliderA);
+
+				for (int bCol = 0; bCol < colliderListB.size(); bCol++) {
+					BaseCollider* colliderB = colliderListB[bCol];
+					SphereCollider* sphereColB = dynamic_cast<SphereCollider*>(colliderB);
+
+					if (colliderA == colliderB) break;
+					if (colliderA->GetColliderType() == ColliderType::SPHERE && colliderB->GetColliderType() == ColliderType::SPHERE) {
+						if (SphereCollider::IsHitSphereSphere(sphereColA, sphereColB)) {
+							OutputDebugString(L"atattauo");
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+
 
 	for (int i = 0; i < objectList_.size(); i++) {
 		BaseObject* object = objectList_[i];
+		auto& colliderList = object->GetColliderList();
 		if (object == nullptr) continue;
 		if (object->IsDead()) {
 			RemoveObject(object);
@@ -31,6 +63,13 @@ void ObjectManager::Update() {
 		else {
 			object->Update();
 			object->Draw();
+
+			for (int a = 0; a < colliderList.size(); a++) {
+				BaseCollider* colliderA = colliderList[a];
+				colliderA->Update();
+				colliderA->Draw();
+			}
+
 			if (object->IsShowImGUI()) {
 				object->DrawImGUI();
 			}

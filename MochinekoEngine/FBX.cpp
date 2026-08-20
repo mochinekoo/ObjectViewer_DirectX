@@ -7,6 +7,8 @@
 #include "ShaderManager.h"
 #include "Camera.h"
 #include "CameraManager.h"
+#include "SphereCollider.h"
+#include "BoxCollider.h"
 
 using namespace fbxsdk;
 using namespace DX3DManager;
@@ -64,7 +66,27 @@ void FBX::DrawImGUI() {
 			ImGui::SliderFloat("Scale Y", &transform_.scale_.y, 0.1f, 10.0f);
 			ImGui::SliderFloat("Scale Z", &transform_.scale_.z, 0.1f, 10.0f);
 			ImGui::Checkbox("Wireframe", &wireframe_);
+			if (ImGui::Button("Create Sphere Collider")) {
+				auto collider = new SphereCollider(this, 1.0f);
+				collider->Init();
+				colliderList_.push_back(collider);
+			}
 
+			ImGui::EndTabItem();
+		}
+		if (ImGui::BeginTabItem("Collider")) {
+			for (int a = 0; a < colliderList_.size(); a++) {
+				BaseCollider* collider = colliderList_[a];
+				SphereCollider* sphere = dynamic_cast<SphereCollider*>(collider);
+				if (ImGui::TreeNode(std::to_string(a).c_str())) {
+					if (sphere != nullptr) {
+						float radius = sphere->GetRadius();
+						ImGui::SliderFloat("Radius", &radius, 0.0f, 10.0f);
+						sphere->SetRadius(radius);
+					}
+					ImGui::TreePop();
+				}
+			}
 			ImGui::EndTabItem();
 		}
 		if (ImGui::BeginTabItem("Light")) {
