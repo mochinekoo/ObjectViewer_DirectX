@@ -8,6 +8,7 @@
 #include <Windows.h>
 #include "ShaderManager.h"
 #include <filesystem>
+#include "SoundManager.h"
 
 using namespace DirectX;
 using namespace DX3DManager;
@@ -18,6 +19,9 @@ void VideoData::Init() {
 	InitSamplerState();
 	InitConstantBuffer();
 	InitVertexBuffer();
+
+	SoundManager::Load(fileName_);
+	SoundManager::Play(fileName_);
 }
 
 void VideoData::Update() {
