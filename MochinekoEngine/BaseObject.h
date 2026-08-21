@@ -3,6 +3,8 @@
 #include <DirectXMath.h>
 #include "Transform.h"
 #include "ImGUI/imgui.h"
+#include <vector>
+#include "BaseCollider.h"
 
 class BaseObject {
 private:
@@ -12,6 +14,7 @@ protected:
 	std::string tag_;
 	bool isDead_;
 	bool showImGUI_;
+	std::vector<BaseCollider*> colliderList_;
 
 	Transform transform_;
 public:
@@ -63,5 +66,5 @@ public:
 	void SetDrawOrder(const int order) { drawHighOrder_ = order;  }
 	bool IsShowImGUI() const { return showImGUI_; }
 	void SetShowImGUI(const bool flag) { showImGUI_ = flag; }
-
+	std::vector<BaseCollider*>& GetColliderList() { return colliderList_; }
 };

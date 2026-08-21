@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -157,6 +157,7 @@
     <ClCompile Include="MochinekoEngine\SceneManager.cpp" />
     <ClCompile Include="MochinekoEngine\ShaderManager.cpp" />
     <ClCompile Include="MochinekoEngine\SoundManager.cpp" />
+    <ClCompile Include="MochinekoEngine\SphereCollider.cpp" />
     <ClCompile Include="MochinekoEngine\Texture.cpp" />
     <ClCompile Include="MochinekoEngine\VideoObject.cpp" />
     <ClCompile Include="MochinekoEngine\VideoData.cpp" />
@@ -165,8 +166,10 @@
     <ClInclude Include="MochinekoEngine\BaseObject.h" />
     <ClInclude Include="MochinekoEngine\BaseScene.h" />
     <ClInclude Include="MochinekoEngine\Box.h" />
+    <ClInclude Include="MochinekoEngine\BoxCollider.h" />
     <ClInclude Include="MochinekoEngine\Camera.h" />
     <ClInclude Include="MochinekoEngine\CameraManager.h" />
+    <ClInclude Include="MochinekoEngine\BaseCollider.h" />
     <ClInclude Include="MochinekoEngine\DebugScene.h" />
     <ClInclude Include="MochinekoEngine\DX2DManager.h" />
     <ClInclude Include="MochinekoEngine\DX3DManager.h" />
@@ -194,6 +197,7 @@
     <ClInclude Include="MochinekoEngine\SceneManager.h" />
     <ClInclude Include="MochinekoEngine\ShaderManager.h" />
     <ClInclude Include="MochinekoEngine\SoundManager.h" />
+    <ClInclude Include="MochinekoEngine\SphereCollider.h" />
     <ClInclude Include="MochinekoEngine\Texture.h" />
     <ClInclude Include="MochinekoEngine\Transform.h" />
     <ClInclude Include="MochinekoEngine\VideoObject.h" />
