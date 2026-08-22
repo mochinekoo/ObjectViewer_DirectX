@@ -94,6 +94,9 @@
     <ClCompile Include="MochinekoEngine\SphereCollider.cpp">
       <Filter>MochinekoEngine\SystemObject</Filter>
     </ClCompile>
+    <ClCompile Include="MochinekoEngine\BoxCollider.cpp">
+      <Filter>MochinekoEngine\SystemObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MochinekoEngine\BaseScene.h">

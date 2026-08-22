@@ -71,6 +71,11 @@ void FBX::DrawImGUI() {
 				collider->Init();
 				colliderList_.push_back(collider);
 			}
+			if (ImGui::Button("Create Box Collider")) {
+				auto collider = new BoxCollider(this, {1.0f, 1.0f, 1.0f});
+				collider->Init();
+				colliderList_.push_back(collider);
+			}
 
 			ImGui::EndTabItem();
 		}
@@ -78,11 +83,19 @@ void FBX::DrawImGUI() {
 			for (int a = 0; a < colliderList_.size(); a++) {
 				BaseCollider* collider = colliderList_[a];
 				SphereCollider* sphere = dynamic_cast<SphereCollider*>(collider);
+				BoxCollider* box = dynamic_cast<BoxCollider*>(collider);
 				if (ImGui::TreeNode(std::to_string(a).c_str())) {
 					if (sphere != nullptr) {
 						float radius = sphere->GetRadius();
 						ImGui::SliderFloat("Radius", &radius, 0.0f, 10.0f);
 						sphere->SetRadius(radius);
+					}
+					if (box != nullptr) {
+						XMFLOAT3 sizeCol = box->GetColliderSize();
+						ImGui::SliderFloat("X Size", &sizeCol.x, 0.0f, 10.0f);
+						ImGui::SliderFloat("Y Size", &sizeCol.y, 0.0f, 10.0f);
+						ImGui::SliderFloat("Z Size", &sizeCol.z, 0.0f, 10.0f);
+						box->SetColliderSize(sizeCol);
 					}
 					ImGui::TreePop();
 				}

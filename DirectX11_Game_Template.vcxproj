@@ -131,6 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MochinekoEngine\Box.cpp" />
+    <ClCompile Include="MochinekoEngine\BoxCollider.cpp" />
     <ClCompile Include="MochinekoEngine\CameraManager.cpp" />
     <ClCompile Include="MochinekoEngine\DebugScene.cpp" />
     <ClCompile Include="MochinekoEngine\DX2DManager.cpp" />

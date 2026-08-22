@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Transform.h"
 
 class BaseObject;
 class Transform;

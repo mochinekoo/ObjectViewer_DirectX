@@ -18,8 +18,8 @@ void DebugScene::Init() {
 	gizmo->SetTag("Gizmo");
 	ObjectManager::AddObject(gizmo);
 
-	VideoObject* video = new VideoObject("a.mp4");
-	ObjectManager::AddObject(video);
+	//VideoObject* video = new VideoObject("a.mp4");
+	//ObjectManager::AddObject(video);
 }
 
 void DebugScene::Update() {

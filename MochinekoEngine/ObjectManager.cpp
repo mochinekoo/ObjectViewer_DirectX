@@ -1,6 +1,7 @@
 #include "ObjectManager.h"
 #include <Windows.h>
 #include "SphereCollider.h"
+#include "BoxCollider.h"
 
 namespace ObjectManager {
 	std::vector<BaseObject*> objectList_;
@@ -26,28 +27,44 @@ void ObjectManager::Update() {
 	for (int i = 0; i < objectList_.size(); i++) {
 		BaseObject* objectA = objectList_[i];
 		auto& colliderListA = objectA->GetColliderList();
-		for (int a = 1; a < objectList_.size(); a++) {
+		for (int a = i + 1; a < objectList_.size(); a++) {
 			BaseObject* objectB = objectList_[a];
 			auto& colliderListB = objectB->GetColliderList();
 
-			if (objectA == objectB) break;
+			if (objectA == objectB) continue;
+			bool isHit = false;
 
 			for (int aCol = 0; aCol < colliderListA.size(); aCol++) {
 				BaseCollider* colliderA = colliderListA[aCol];
 				SphereCollider* sphereColA = dynamic_cast<SphereCollider*>(colliderA);
+				BoxCollider* boxColA = dynamic_cast<BoxCollider*>(colliderA);
 
 				for (int bCol = 0; bCol < colliderListB.size(); bCol++) {
 					BaseCollider* colliderB = colliderListB[bCol];
 					SphereCollider* sphereColB = dynamic_cast<SphereCollider*>(colliderB);
+					BoxCollider* boxColB = dynamic_cast<BoxCollider*>(colliderB);
 
-					if (colliderA == colliderB) break;
+					if (colliderA == colliderB) continue;
 					if (colliderA->GetColliderType() == ColliderType::SPHERE && colliderB->GetColliderType() == ColliderType::SPHERE) {
 						if (SphereCollider::IsHitSphereSphere(sphereColA, sphereColB)) {
-							OutputDebugString(L"atattauo");
-							break;
+							// OutputDebugString(L"Hit: Sphere VS Sphere \n");
+							isHit = true;
+							continue;
+						}
+					}
+					if (colliderA->GetColliderType() == ColliderType::BOX && colliderB->GetColliderType() == ColliderType::BOX) {
+						if (BoxCollider::IsHitBoxBox(boxColA, boxColB)) {
+							// OutputDebugString(L"Hit: Box VS Box \n");
+							isHit = true;
+							continue;
 						}
 					}
 				}
+			}
+
+			if (isHit) {
+				OutputDebugString(L"Hit! \n");
+				continue;
 			}
 		}
 	}
