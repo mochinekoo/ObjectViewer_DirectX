@@ -19,9 +19,11 @@ void FBX::Init() {
 } 
 
 void FBX::Update() {
-	for (int i = 0; i < childFbx_.size(); i++) {
-		FbxChild* fbx = childFbx_[i];
-		fbx->Update();
+	for (int i = 0; i < childList_.size(); i++) {
+		FbxChild* fbx = dynamic_cast<FbxChild*>(childList_[i]);
+		if (fbx != nullptr) {
+			fbx->Update();
+		}
 	}
 }
 
@@ -39,9 +41,11 @@ void FBX::Draw() {
 		DisableWireframe();
 	}
 
-	for (int i = 0; i < childFbx_.size(); i++) {
-		FbxChild* fbx = childFbx_[i];
-		fbx->Draw();
+	for (int i = 0; i < childList_.size(); i++) {
+		FbxChild* fbx = dynamic_cast<FbxChild*>(childList_[i]);
+		if (fbx != nullptr) {
+			fbx->Draw();
+		}
 	}
 
 	EnableZDepthWrite();
@@ -149,6 +153,6 @@ void FBX::InitFBX() {
 		 if (node->GetMesh() == nullptr) continue;
 		 FbxChild* fbx = new FbxChild(this, node);
 		 fbx->Init();
-		 childFbx_.push_back(fbx);
+		 childList_.push_back(fbx);
 	 }
 }

@@ -17,7 +17,6 @@ private:
 	bool zDepthWrite_;
 	bool wireframe_;
 
-	FBX* rootFbx_;
 	ID3D11Buffer* vertexBuffer_;
 	std::vector<ID3D11Buffer*> indexBuffer_;
 
@@ -58,7 +57,7 @@ public:
 
 	FbxChild(FBX* fbx, FbxNode* node, const bool zDepthWrite = true, const bool wireFrame = false)
 		: BaseObject("FBX") {
-		rootFbx_ = fbx;
+		parent_ = (BaseObject*) fbx;
 		node_ = node;
 		vertexBuffer_ = nullptr;
 		indexBuffer_.clear();

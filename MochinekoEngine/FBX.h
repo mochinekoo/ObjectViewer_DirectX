@@ -40,8 +40,6 @@ private:
 
 	std::string fileName_;
 	fbxsdk::FbxNode* rootNode_;
-
-	std::vector<FbxChild*> childFbx_;
 private:
 	void InitFBX();
 public:

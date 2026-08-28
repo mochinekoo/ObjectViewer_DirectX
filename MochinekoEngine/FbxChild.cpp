@@ -25,9 +25,7 @@ void FbxChild::Init() {
 void FbxChild::Update() {
 	Camera* currentCamera = CameraManager::GetCurrentCamera();
 
-	XMMATRIX parentWorld = rootFbx_->GetTransform().GetWorldMatrix();
-	XMMATRIX world = parentWorld * transform_.GetWorldMatrix(); 
-
+	XMMATRIX world = GetWorldMatrix();
 	XMMATRIX view = currentCamera->GetViewMatrix();
 	XMMATRIX projection = currentCamera->GetProjection();
 
@@ -45,10 +43,10 @@ void FbxChild::Update() {
 }
 
 void FbxChild::Draw() {
-	if (!zDepthWrite_ || !rootFbx_->IsZDepthWrite()) {
+	if (!zDepthWrite_) {
 		DisableZDepthWrite();
 	}
-	if (wireframe_ || rootFbx_->IsWireframe()) {
+	if (wireframe_) {
 		EnableWireframe();
 	}
 	else {

@@ -13,6 +13,14 @@ void ObjectManager::Init() {
 
 void ObjectManager::Update() {
 	for (int i = 0; i < objectList_.size(); i++) {
+		BaseObject* object = objectList_[i];
+		if (object == nullptr) continue;
+		if (object->GetParent() == nullptr) {
+			object->UpdateTransform();
+		}
+	}
+
+	for (int i = 0; i < objectList_.size(); i++) {
 		for (int a = 1; a < objectList_.size(); a++) {
 			BaseObject* object = objectList_[i];
 			if (object == nullptr) continue;

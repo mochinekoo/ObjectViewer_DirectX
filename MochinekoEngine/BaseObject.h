@@ -16,6 +16,10 @@ protected:
 	bool showImGUI_;
 	std::vector<BaseCollider*> colliderList_;
 
+	BaseObject* parent_;
+	std::vector<BaseObject*> childList_;
+	DirectX::XMMATRIX worldMatrix_;
+
 	Transform transform_;
 public:
 
@@ -26,6 +30,7 @@ public:
 		transform_ = Transform();
 		drawHighOrder_ = 0;
 		showImGUI_ = true;
+		parent_ = nullptr;
 	};
 	virtual ~BaseObject() {};
 
@@ -54,6 +59,33 @@ public:
 		ImGui::End();
 	};
 	virtual void Release() {};
+
+	BaseObject* GetParent() const { return parent_; }
+	void SetParent(BaseObject* object) { parent_ = object; }
+
+	void AddChild(BaseObject* object) { 
+		childList_.push_back(object); 
+		object->parent_ = this;
+	}
+
+	DirectX::XMMATRIX GetWorldMatrix() const { return worldMatrix_;}
+	void SetWorldMatrix(const DirectX::XMMATRIX matrix) { worldMatrix_ = matrix; }
+
+	void UpdateTransform() {
+		if (parent_ != nullptr) {
+			DirectX::XMMATRIX parentWorld = parent_->GetWorldMatrix();
+			worldMatrix_ = parentWorld * transform_.GetWorldMatrix();
+		}
+		else {
+			worldMatrix_ = transform_.GetWorldMatrix();
+		}
+
+		for (BaseObject* child : childList_) {
+			if (child != nullptr) {
+				child->UpdateTransform();
+			}
+		}
+	}
 
 	std::string GetName() const { return name_; }
 	std::string GetTag() const { return tag_; }

@@ -16,6 +16,7 @@ void DebugScene::Init() {
 
 	FBX* gizmo = new FBX("MochinekoEngine/Asset/gizmo.fbx", false, false);
 	gizmo->SetTag("Gizmo");
+	gizmo->AddChild(grid);
 	ObjectManager::AddObject(gizmo);
 
 	//VideoObject* video = new VideoObject("a.mp4");
